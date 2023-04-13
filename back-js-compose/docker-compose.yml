@@ -1,0 +1,14 @@
+version: '2.2'
+
+services:
+  nodejs:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: nodejs-demo
+    ports:
+      - "4300:8080"
+    volumes:
+      - .:/home/node/app
+    command: node index.js

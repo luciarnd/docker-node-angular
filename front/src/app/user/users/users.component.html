@@ -1,0 +1,43 @@
+<div id="main">
+  <div *ngIf="isLoaded == false" class="grid">
+    <p-card class="lg:col-3 md:col-6 sm:col-12 col-12" *ngFor="let number of numbers">
+      <div class="flex flex-column align-items-center">
+          <p-skeleton shape="circle" size="4rem" styleClass="mt-3"></p-skeleton>
+          <div class="flex align-items-center flex-column">
+              <p-skeleton width="5rem" styleClass="mt-4"></p-skeleton>
+              <p-skeleton width="10rem" styleClass="mt-4"></p-skeleton>
+              <p-skeleton height=".5rem"></p-skeleton>
+          </div>
+      </div>
+      <p-skeleton width="100%" height="2px" styleClass="mt-2"></p-skeleton>
+      <div class="flex flex-row align-items-center mt-5">
+        <p-skeleton shape="circle" size="2rem"></p-skeleton>
+        <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+      </div>
+      <div class="flex flex-row align-items-center mt-3">
+        <p-skeleton shape="circle" size="2rem"></p-skeleton>
+        <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+      </div>
+    </p-card>
+  </div>
+  <div *ngIf="isLoaded == true" class="grid">
+    <p-card class="lg:col-3 md:col-6 sm:col-12 col-12" *ngFor="let usuario of usersPag">
+      <div class="header">
+        <p-avatar image="https://i.pravatar.cc/150?u={{usuario.email}}" size="xlarge" shape="circle"></p-avatar>
+        <a class="p-card-title" routerLink="users/{{usuario.id}}" style="display: block;">{{usuario.username}}</a>
+        <p class="p-card-subtitle" style="margin: 0;">{{usuario.name}}</p>
+      </div>
+      <p-divider></p-divider>
+      <div id="contact">
+        <p>
+          <i class="pi pi-envelope" style="font-size: 1.5rem"></i><span id="icons">{{usuario.email}}</span>
+        </p>
+        <p>
+          <i class="pi pi-phone" style="font-size: 1.5rem"></i><span id="icons">{{usuario.phone}}</span>
+        </p>
+      </div>
+    </p-card>
+  </div>
+  <p-paginator (onPageChange)="onPageChange($event)" [rows]="rows" [totalRecords]="usuarioslength" [rowsPerPageOptions]="[4, 8, 10]"></p-paginator>
+</div>
+

@@ -1,0 +1,74 @@
+
+<a routerLink=""><i class="pi pi-arrow-left mx-5 my-4" style="font-size: 1.5rem;"></i></a>
+<div id="main">
+  <div *ngIf="isLoaded == false">
+    <p-panel>
+      <ng-template pTemplate="header">
+        <div class="flex align-items-center">
+          <p-skeleton shape="circle" size="3rem" styleClass="mr-4"></p-skeleton>
+          <p-skeleton width="10rem"></p-skeleton>
+        </div>
+      </ng-template>
+      <div class="flex flex-row align-items-center mt-2">
+        <p-skeleton shape="circle" size="2rem"></p-skeleton>
+        <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+      </div>
+      <div class="flex flex-row align-items-center mt-2">
+        <p-skeleton shape="circle" size="2rem"></p-skeleton>
+        <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+      </div>
+      <div class="flex flex-row align-items-center mt-2">
+        <p-skeleton shape="circle" size="2rem"></p-skeleton>
+        <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+      </div>
+      <div class="flex flex-row align-items-center mt-2">
+        <p-skeleton shape="circle" size="2rem"></p-skeleton>
+        <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+      </div>
+    </p-panel>
+    <p-panel [toggler]="'header'"[collapsed]="true">
+      <ng-template pTemplate="header">
+        <div class="flex flex-row align-items-center mt-2">
+          <p-skeleton shape="circle" size="2rem"></p-skeleton>
+          <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+        </div>
+      </ng-template>
+    </p-panel>
+    <p-panel [toggler]="'header'"[collapsed]="true">
+      <ng-template pTemplate="header">
+        <div class="flex flex-row align-items-center mt-2">
+          <p-skeleton shape="circle" size="2rem"></p-skeleton>
+          <p-skeleton width="8rem" styleClass="ml-3"></p-skeleton>
+        </div>
+      </ng-template>
+    </p-panel>
+  </div>
+  <p-panel *ngIf="isLoaded == true">
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center">
+        <p-avatar image="https://i.pravatar.cc/150?u={{usuario.email}}" styleClass="mr-2" shape="circle" size="large"></p-avatar>
+        <span class="font-semibold text-xl ml-2">{{usuario.name}}</span>
+      </div>
+    </ng-template>
+    <p><i class="pi pi-user" style="font-size: 1.2rem; color: #1D4ED8"></i><span id="icons">{{usuario.username}}</span>
+    <p><i class="pi pi-envelope" style="font-size: 1.2rem; color: #1D4ED8"></i> <span id="icons">{{usuario.email}}</span>
+    <p><i class="pi pi-phone" style="font-size: 1.2rem; color: #1D4ED8"></i> <span id="icons">{{usuario.phone}}</span>
+    <p><i class="pi pi-at" style="font-size: 1.2rem; color: #1D4ED8;"></i> <span id="icons">{{usuario.website}}</span>
+  </p-panel>
+  <p-panel [toggler]="'header'"[collapsed]="true" [toggleable]="true">
+    <ng-template pTemplate="header">
+      <i class="pi pi-building" style="font-size: 1.2rem; padding-right: 10px;"></i> <p class="font-semibold text-l">Company</p>
+    </ng-template>
+    <p>{{usuario.company.name}}</p>
+    <p>{{usuario.company.bs}}</p>
+    <p>{{usuario.company.catchPhrase}}</p>
+  </p-panel>
+  <p-panel [toggler]="'header'" [collapsed]="true" [toggleable]="true">
+    <ng-template pTemplate="header">
+      <i class="pi pi-home" style="font-size: 1.2rem; padding-right: 10px;"></i> <p class="font-semibold text-l">Address</p>
+    </ng-template>
+    <p>{{usuario.address.street}}, {{usuario.address.suite}}</p>
+    <p>{{usuario.address.zipcode}}, {{usuario.address.city}}</p>
+    <p><b>Lat:</b> {{usuario.address.geo.lat}}, <b>Long:</b> {{usuario.address.geo.lng}}</p>
+  </p-panel>
+</div>
